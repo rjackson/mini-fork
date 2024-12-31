@@ -6,6 +6,7 @@
 #include <ESPAsyncWebSrv.h> // by dvarrel
 #include <iostream>
 #include <sstream>
+#include <htmlHomePage.h>
 
 #if defined(ESP32)
 #include <AsyncTCP.h> // by dvarrel
@@ -161,7 +162,7 @@ void mastTilt(int mastTilt)
 
 void handleRoot(AsyncWebServerRequest *request)
 {
-  request->send_P(200, "text/html", htmlHomePage);
+  request->send_P(200, "text/html", HTML_HOMEPAGE_CONTENT);
 }
 
 void handleNotFound(AsyncWebServerRequest *request)
