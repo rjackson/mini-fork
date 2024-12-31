@@ -36,7 +36,11 @@
 
 extern const char* htmlHomePage PROGMEM;
 
-const char* ssid = "Forklift";
+#ifndef WIFI_SSID
+#define WIFI_SSID "Forklift"
+#endif
+
+const char* ssid = WIFI_SSID;
  
 // global variables
 
@@ -256,7 +260,7 @@ void setup(void)
   setUpPinModes();
   Serial.begin(115200);
 
-  WiFi.softAP(ssid );
+  WiFi.softAP(ssid);
   IPAddress IP = WiFi.softAPIP();
   Serial.print("AP IP address: ");
   Serial.println(IP);
